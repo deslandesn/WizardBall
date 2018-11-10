@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BroomStickFollowController : MonoBehaviour {
+public class LookAtPos : MonoBehaviour {
 
     public Transform FollowPos;
 
