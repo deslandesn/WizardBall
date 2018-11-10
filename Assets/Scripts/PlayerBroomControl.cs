@@ -8,7 +8,6 @@ public class PlayerBroomControl : MonoBehaviour
     public float MaxSpeed;
     public float MovePower;
     public float TurnSpeed;
-    public float MaxPitch;
 
     float throttle = 0;
     float curPower;
@@ -56,10 +55,10 @@ public class PlayerBroomControl : MonoBehaviour
     /// </summary>
     void GetControlInputs()
     {
+       
         throttle = gripThrottle.Throttle;
-        print(throttle);
         curPower = throttle * MovePower;
-        if(curPower < 0.2f)
+        if (throttle < 0.2f && throttle > -0.2f)
         {
             curPower = 0;
         }

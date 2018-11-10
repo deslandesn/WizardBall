@@ -7,6 +7,8 @@ namespace Valve.VR.InteractionSystem.Sample
     [RequireComponent(typeof(Interactable))]
     public class InteractableBase : MonoBehaviour
     {
+        public bool snapBack = true;
+        public bool GoToHandPos = false;
         private Vector3 oldPosition;
         private Quaternion oldRotation;
 
@@ -54,6 +56,7 @@ namespace Valve.VR.InteractionSystem.Sample
                 // Save our position/rotation so that we can restore it when we detach
                 oldPosition = transform.localPosition;
                 oldRotation = transform.localRotation;
+                
 
                 // Call this to continue receiving HandHoverUpdate messages,
                 // and prevent the hand from hovering over anything else
@@ -70,9 +73,12 @@ namespace Valve.VR.InteractionSystem.Sample
                 // Call this to undo HoverLock
                 hand.HoverUnlock(interactable);
 
-                // Restore position/rotation
-                transform.localPosition = oldPosition;
-                transform.localRotation = oldRotation;
+                if (snapBack)
+                {
+                    // Restore position/rotation
+                    transform.localPosition = oldPosition;
+                    transform.localRotation = oldRotation;
+                }
             }
         }
 
@@ -82,7 +88,10 @@ namespace Valve.VR.InteractionSystem.Sample
         //-------------------------------------------------
         private void OnAttachedToHand(Hand hand)
         {
-
+            if(GoToHandPos)
+            {
+                transform.localPosition = Vector3.zero;
+            }
         }
 
 

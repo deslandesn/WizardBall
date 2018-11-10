@@ -6,11 +6,11 @@ public class GripMarkerController : MonoBehaviour
 {
     public float followSpeed;
 
-    Transform followGrip;
+    public Transform followGrip;
 
 	void Start ()
     {
-        followGrip = transform.parent.Find("GripGrabPoint");
+
 	}
 	
 	void FixedUpdate ()

@@ -30,6 +30,9 @@ public class GripThrottle : MonoBehaviour
             hand = interactable.attachedToHand.handType;
             Vector2 m = a_move.GetAxis(hand);
             Throttle =  m.y;
+        }else
+        {
+            Throttle = 0;
         }
     }
 
