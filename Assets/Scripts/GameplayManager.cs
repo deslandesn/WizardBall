@@ -66,6 +66,10 @@ public class GameplayManager : MonoBehaviour {
 
     void GetTeamAndPosition()
     {
+        if(PlayerDataCarrier.instance == null)
+        {
+            return;
+        }
         if(PlayerDataCarrier.instance.GetTeam() == "Red")
         {
             team = 0;
