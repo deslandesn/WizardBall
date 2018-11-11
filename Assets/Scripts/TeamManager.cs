@@ -17,6 +17,7 @@ public class TeamManager : MonoBehaviour {
     private GameObject ball;
     private BallOwnership ballOwner;
 
+
     [HideInInspector]
     public Teams holdingTeam;
 
@@ -28,7 +29,6 @@ public class TeamManager : MonoBehaviour {
 
         ball = GameObject.Find("Ball");
         ballOwner = ball.GetComponent<BallOwnership>();
-        activeBallZone = ballOwner.activeZone;
 
         
 
