@@ -24,7 +24,7 @@ public class GoalNet : MonoBehaviour
                 gameplayMan.ScorePoint(1);
             }else if(team == Team.Red)
             {
-                gameplayMan.ScorePoint(2);
+                gameplayMan.ScorePoint(0);
             }
 
             //reset ball
