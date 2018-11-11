@@ -5,10 +5,14 @@ using UnityEngine;
 public class BallOwnership : MonoBehaviour {
 
     private AIWizard ActiveOwner;
+    
+    public Zones activeZone;
+    
 	// Use this for initialization
 	void Start () {
-		
-	}
+        activeZone = Zones.Mid;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,4 +30,27 @@ public class BallOwnership : MonoBehaviour {
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.gameObject.name)
+        {
+            case "BlueZone":
+                activeZone = Zones.Blue;
+                print("entered blue");
+                break;
+            case "RedZone":
+                activeZone = Zones.Red;
+                print("entered red");
+                break;
+            case "MidZone":
+                activeZone = Zones.Mid;
+                print("entered mid");
+                break;
+        }
+    }
+
+}
+public enum Zones
+{
+    Red, Mid, Blue
 }
