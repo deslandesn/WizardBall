@@ -12,24 +12,26 @@ public class AIWizard : MonoBehaviour
     Transform ballTransform;
     Rigidbody rb;
 
-    bool holdingBall;
+    [HideInInspector]
+    public bool holdingBall;
+    
 
-    Vector3 dirToBall;
+    [HideInInspector]
+    public Transform targettrans;
 
-    public GameObject targetobj;
-    Transform targettrans;
     Vector3 targetDir;
+   
+    public Teams team;
 
-    public enum Team { Blue, Red };
-    public Team team;
+    //public enum Roles { Defense, Mid, Attack};
+   // public Roles role;
 
-    public enum Roles { Defense, Mid, Attack};
-    public Roles role;
+    public GameObject zone;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        targettrans = GameObject.Find("Ball").transform;
+        //targettrans = GameObject.Find("Ball").transform;
     }
 
     private void FixedUpdate()
@@ -42,7 +44,7 @@ public class AIWizard : MonoBehaviour
         float activeSpeed = speed;
         if (holdingBall)
         {
-            activeSpeed = activeSpeed * 0.8f;
+            activeSpeed = activeSpeed * 0.5f;
         }
 
         transform.position += transform.forward * activeSpeed;
@@ -69,23 +71,30 @@ public class AIWizard : MonoBehaviour
         {
             other.gameObject.GetComponent<BallOwnership>().ChangeOwner(this);
             holdingBall = true;
-            if (team == Team.Blue)
+            if (team == Teams.Blue)
             {
-                setNewTarget(GameObject.Find("RedNet/Target"));
+                setNewTarget(GameObject.Find("RedNet/Target").transform);
             }
             else
             {
-                setNewTarget(GameObject.Find("BlueNet/Target"));
+                setNewTarget(GameObject.Find("BlueNet/Target").transform);
             }
         }
     }
-    public void setNewTarget(GameObject newTarget)
+    public void setNewTarget(Transform newTarget)
     {
-        targettrans = newTarget.transform;
+        if (holdingBall) { 
+            if(newTarget.gameObject.name == "Target")
+            targettrans = newTarget;
+        }
+        else
+        {
+            targettrans = newTarget;
+        }
     }
     public void ballStolen(GameObject ball)
     {
-        setNewTarget(ball);
+        setNewTarget(ball.transform);
         holdingBall = false;
     }
 }
