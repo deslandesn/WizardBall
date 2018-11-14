@@ -2085,6 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ec99af4a240a843ac22946752eb345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeZone: 0
 --- !u!1001 &1129157020
 Prefab:
   m_ObjectHideFlags: 0
@@ -2129,7 +2130,13 @@ Prefab:
       propertyPath: FollowPos
       value: 
       objectReference: {fileID: 1818171588}
-    m_RemovedComponents: []
+    - target: {fileID: 114317121229429818, guid: 342dbb6a95770964691a842ec232b6dc,
+        type: 2}
+      propertyPath: NoControllerMode
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114895750339059200, guid: 342dbb6a95770964691a842ec232b6dc, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 342dbb6a95770964691a842ec232b6dc, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1188467468
@@ -3365,7 +3372,7 @@ GameObject:
   m_Layer: 0
   m_Name: BallSpawnPos
   m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
@@ -3467,6 +3474,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949464655}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1953856035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1625880359752190, guid: 342dbb6a95770964691a842ec232b6dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1129157020}
+--- !u!114 &1953856038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1953856035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db0ac758d6068742a9aaf1935ffcb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedUp: 304
+  slowDown: 32
+  up: 119
+  down: 115
+  left: 97
+  right: 100
+  Throttle: 0
+  Pitch: 0
+  Turn: 0
 --- !u!1 &1961543773
 GameObject:
   m_ObjectHideFlags: 0
