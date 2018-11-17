@@ -22,7 +22,8 @@ public class TeamManager : MonoBehaviour {
     public Teams holdingTeam;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         blueZone = GameObject.Find("BlueZone").transform;
         redZone = GameObject.Find("RedZone").transform;
         midZone = GameObject.Find("MidZone").transform;
@@ -30,7 +31,7 @@ public class TeamManager : MonoBehaviour {
         ball = GameObject.Find("Ball");
         ballOwner = ball.GetComponent<BallOwnership>();
 
-        
+
 
         redTeam[0] = redDefence;
         redTeam[1] = redMid;
@@ -41,10 +42,15 @@ public class TeamManager : MonoBehaviour {
         blueTeam[2] = blueOffense;
 
         holdingTeam = Teams.None;
-
-        blueDefence.targettrans = blueMid.targettrans = blueOffense.targettrans = redDefence.targettrans = redMid.targettrans = redOffense.targettrans = ball.transform;
         
-
+        foreach (AIWizard wizard in redTeam)
+        {
+            wizard.targettrans = ball.transform;
+        }
+        foreach (AIWizard wizard in redTeam)
+        {
+            wizard.targettrans = ball.transform;
+        }
     }
 
     // Update is called once per frame
