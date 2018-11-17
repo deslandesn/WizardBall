@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4220722806347144}
   m_Layer: 0
   m_Name: PitchOptions (6)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 114570415321062104}
   m_Layer: 9
   m_Name: ControllerHoverHighlight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 54083695761595992}
   m_Layer: 26
   m_Name: FallbackHand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4203908630926876}
   m_Layer: 0
   m_Name: CenterBroom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4387060967883960}
   m_Layer: 0
   m_Name: PitchOptions (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 114563587257924856}
   m_Layer: 0
   m_Name: GripGrabBroom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 4547565569719804}
   m_Layer: 0
   m_Name: Grip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 4900901146308252}
   m_Layer: 0
   m_Name: PitchOptions (7)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 4163743814622524}
   m_Layer: 0
   m_Name: VisBroomFollowPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 4756372857317412}
   m_Layer: 0
   m_Name: PitchOptions (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 4448141422796786}
   m_Layer: 9
   m_Name: ObjectAttachmentPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4501773404470466}
   m_Layer: 0
   m_Name: PitchOptions (5)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 23698066858072088}
   m_Layer: 26
   m_Name: Indicator
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 114450771913967254}
   m_Layer: 0
   m_Name: Grip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 54338349748616274}
   m_Layer: 26
   m_Name: HeadCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 4974866486281890}
   m_Layer: 0
   m_Name: NoSteamVRFallbackObjects
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 4417163748572262}
   m_Layer: 9
   m_Name: HoverPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 114539749389285214}
   m_Layer: 0
   m_Name: '[SteamVR]'
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 81052803184812806}
   m_Layer: 0
   m_Name: FollowHead
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 114749245548504174}
   m_Layer: 8
   m_Name: Overlay
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 4953640364123202}
   m_Layer: 0
   m_Name: Broom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 114852060679167922}
   m_Layer: 9
   m_Name: RightHand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 114216359521704276}
   m_Layer: 9
   m_Name: ControllerHoverHighlight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,7 +505,22 @@ GameObject:
   - component: {fileID: 114058464719303150}
   m_Layer: 9
   m_Name: ControllerButtonHints
-  m_TagString: Untagged
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1496518986992068
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4789116056259138}
+  m_Layer: 0
+  m_Name: WandAttachPoint
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -521,7 +536,7 @@ GameObject:
   - component: {fileID: 114218498243771060}
   m_Layer: 9
   m_Name: ControllerButtonHints
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -537,7 +552,7 @@ GameObject:
   - component: {fileID: 114232712258298758}
   m_Layer: 0
   m_Name: BroomStick
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -556,7 +571,7 @@ GameObject:
   - component: {fileID: 124435201041407824}
   m_Layer: 0
   m_Name: VRCamera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,7 +586,7 @@ GameObject:
   - component: {fileID: 4355826221410698}
   m_Layer: 0
   m_Name: PitchPosReset
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +617,7 @@ GameObject:
   - component: {fileID: 4972133306222872}
   m_Layer: 0
   m_Name: PitchOptions
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +635,7 @@ GameObject:
   - component: {fileID: 65028353475693422}
   m_Layer: 10
   m_Name: GrabBroom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,9 +649,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4372560576480006}
   - component: {fileID: 114337981639526720}
+  - component: {fileID: 114006461030482248}
   m_Layer: 0
   m_Name: VRPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,10 +666,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4148960303374620}
   - component: {fileID: 20322078971794166}
-  - component: {fileID: 114895750339059200}
   m_Layer: 0
   m_Name: FallbackObjects
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -670,7 +685,7 @@ GameObject:
   - component: {fileID: 114419093985233744}
   m_Layer: 9
   m_Name: LeftHand
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +715,7 @@ GameObject:
   - component: {fileID: 4786464383173360}
   m_Layer: 0
   m_Name: PitchOptions (4)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -721,7 +736,7 @@ GameObject:
   - component: {fileID: 114112072361992044}
   m_Layer: 0
   m_Name: GripCenterer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -753,7 +768,7 @@ GameObject:
   - component: {fileID: 4365043068497608}
   m_Layer: 0
   m_Name: PitchPos
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,7 +786,7 @@ GameObject:
   - component: {fileID: 114656742437629114}
   m_Layer: 0
   m_Name: InputModule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -786,7 +801,7 @@ GameObject:
   - component: {fileID: 4496065886334550}
   m_Layer: 9
   m_Name: ObjectAttachmentPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -803,7 +818,7 @@ GameObject:
   - component: {fileID: 23740125354496690}
   m_Layer: 0
   m_Name: VisBroom
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -821,7 +836,7 @@ GameObject:
   - component: {fileID: 114680180895017464}
   m_Layer: 0
   m_Name: PlayVolume
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,7 +851,7 @@ GameObject:
   - component: {fileID: 4204182789465664}
   m_Layer: 0
   m_Name: PitchOptions (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,7 +866,7 @@ GameObject:
   - component: {fileID: 4752357825394650}
   m_Layer: 9
   m_Name: HoverPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -900,9 +915,10 @@ GameObject:
   - component: {fileID: 4325692712417438}
   - component: {fileID: 114317121229429818}
   - component: {fileID: 54128782696264504}
+  - component: {fileID: 114379312878525172}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -934,7 +950,7 @@ GameObject:
   - component: {fileID: 4878176439335888}
   m_Layer: 0
   m_Name: SteamVRObjects
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1439,6 +1455,7 @@ Transform:
   m_LocalScale: {x: 0.081499666, y: 0.10036375, z: 3.4314487}
   m_Children:
   - {fileID: 4953640364123202}
+  - {fileID: 4789116056259138}
   m_Father: {fileID: 4205559422018754}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1533,6 +1550,19 @@ Transform:
   m_Father: {fileID: 4972133306222872}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4789116056259138
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496518986992068}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.2, y: 0, z: 0.171}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4704101424115254}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!4 &4799518037871436
 Transform:
   m_ObjectHideFlags: 1
@@ -2632,6 +2662,26 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507492053324810}
   m_Enabled: 1
+--- !u!114 &114006461030482248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1625880359752190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db0ac758d6068742a9aaf1935ffcb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedUp: 304
+  slowDown: 32
+  up: 119
+  down: 115
+  left: 97
+  right: 100
+  Throttle: 0
+  Pitch: 0
+  Turn: 0
 --- !u!114 &114043785200148222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2782,6 +2832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14985110ed65a1c409d024eb318b3361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoControllerMode: 0
   MaxSpeed: 15
   MovePower: 0.5
   TurnSpeed: 1
@@ -2855,6 +2906,18 @@ MonoBehaviour:
   showDebugText: 0
   spewDebugText: 0
   showDebugInteractables: 0
+--- !u!114 &114379312878525172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945649342117214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6850fb3e9e4f1468f48c00b698fe6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPoint: {fileID: 4789116056259138}
 --- !u!114 &114419093985233744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2928,6 +2991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapBack: 1
   GoToHandPos: 1
+  GoToHandRot: 0
 --- !u!114 &114563587257924856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3052,6 +3116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapBack: 0
   GoToHandPos: 0
+  GoToHandRot: 0
 --- !u!114 &114749245548504174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3175,20 +3240,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Valve.VR.SteamVR_Behaviour_PoseEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114895750339059200
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1685006569891538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6043f3be9a21bd74281f9770463bea00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  shiftSpeed: 16
-  showInstructions: 1
 --- !u!114 &114951927024124884
 MonoBehaviour:
   m_ObjectHideFlags: 1

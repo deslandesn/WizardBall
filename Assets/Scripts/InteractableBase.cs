@@ -9,6 +9,7 @@ namespace Valve.VR.InteractionSystem.Sample
     {
         public bool snapBack = true;
         public bool GoToHandPos = false;
+        public bool GoToHandRot = false;
         private Vector3 oldPosition;
         private Quaternion oldRotation;
 
@@ -92,8 +93,12 @@ namespace Valve.VR.InteractionSystem.Sample
             {
                 transform.localPosition = Vector3.zero;
             }
+            if (GoToHandRot)
+            {
+                transform.rotation = hand.transform.rotation ;
+            }
         }
-
+        
 
         //-------------------------------------------------
         // Called when this GameObject is detached from the hand
