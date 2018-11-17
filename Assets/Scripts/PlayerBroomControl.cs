@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBroomControl : MonoBehaviour
 {
+    public bool NoControllerMode = false;
 
     public float MaxSpeed;
     public float MovePower;
@@ -20,6 +21,8 @@ public class PlayerBroomControl : MonoBehaviour
     Grip grip;
     GripThrottle gripThrottle;
 
+    NonVrController nonVrController = null;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +30,15 @@ public class PlayerBroomControl : MonoBehaviour
         PitchPos = transform.Find("VRPlayer").Find("PitchPos");
         PitchPosReset = transform.Find("VRPlayer").Find("PitchPosReset");
         gripThrottle = GetComponentInChildren<GripThrottle>();
+        nonVrController = GetComponentInChildren<NonVrController>();
+
+        if (NoControllerMode)
+        {
+            nonVrController.enabled = true;
+        }else//has controllers
+        {
+            nonVrController.enabled = false;
+        }
     }
 
     private void Update()
@@ -55,8 +67,14 @@ public class PlayerBroomControl : MonoBehaviour
     /// </summary>
     void GetControlInputs()
     {
-       
-        throttle = gripThrottle.Throttle;
+        if (NoControllerMode)//no controllers
+        {
+            throttle = nonVrController.Throttle;
+        }
+        else//controllers
+        {
+            throttle = gripThrottle.Throttle;
+        }
         curPower = throttle * MovePower;
         if (throttle < 0.2f && throttle > -0.2f)
         {
@@ -81,7 +99,14 @@ public class PlayerBroomControl : MonoBehaviour
     /// </summary>
     void DoTurn()
     {
-        transform.Rotate(Vector3.up, TurnSpeed * grip.GetTurn());
+        if (NoControllerMode)//no controllers
+        {
+            transform.Rotate(Vector3.up, TurnSpeed * nonVrController.Turn);
+        }
+        else//controllers
+        {
+            transform.Rotate(Vector3.up, TurnSpeed * grip.GetTurn());
+        }
     }
 
     /// <summary>
@@ -90,36 +115,69 @@ public class PlayerBroomControl : MonoBehaviour
     void DoPitch()
     {
         Quaternion x = new Quaternion(0,0,0,0);
-        if(grip.GetPitch() > 0.7f)
+        if (NoControllerMode)//no controllers
         {
-            x = a.rotation;
+            if (nonVrController.Pitch > 0.7f)
+            {
+                x = a.rotation;
+            }
+            else if (nonVrController.Pitch > 0.4f)
+            {
+                x = b.rotation;
+            }
+            else if (nonVrController.Pitch > 0.2f)
+            {
+                x = c.rotation;
+            }
+            else if (nonVrController.Pitch > -0.05f && nonVrController.Pitch < 0.05f)
+            {
+                x = d.rotation;
+            }
+            else if (nonVrController.Pitch > -0.2f)
+            {
+                x = e.rotation;
+            }
+            else if (nonVrController.Pitch > -0.4f)
+            {
+                x = f.rotation;
+            }
+            else if (nonVrController.Pitch < -0.7f)
+            {
+                x = g.rotation;
+            }
         }
-        else if (grip.GetPitch() > 0.4f)
+        else//controllers
         {
-            x = b.rotation;
-        }
-        else if (grip.GetPitch() > 0.2f)
-        {
-            x= c.rotation;
-        }
-        else if (grip.GetPitch() > -0.05f && grip.GetPitch() < 0.05f)
-        {
-            x = d.rotation;
-        }
-        else if (grip.GetPitch() > -0.2f)
-        {
-            x = e.rotation;
-        }
-        else if (grip.GetPitch() > -0.4f)
-        {
-            x = f.rotation;
-        }
-        else if (grip.GetPitch() < -0.7f)
-        {
-            x= g.rotation;
+            if (grip.GetPitch() > 0.7f)
+            {
+                x = a.rotation;
+            }
+            else if (grip.GetPitch() > 0.4f)
+            {
+                x = b.rotation;
+            }
+            else if (grip.GetPitch() > 0.2f)
+            {
+                x = c.rotation;
+            }
+            else if (grip.GetPitch() > -0.05f && grip.GetPitch() < 0.05f)
+            {
+                x = d.rotation;
+            }
+            else if (grip.GetPitch() > -0.2f)
+            {
+                x = e.rotation;
+            }
+            else if (grip.GetPitch() > -0.4f)
+            {
+                x = f.rotation;
+            }
+            else if (grip.GetPitch() < -0.7f)
+            {
+                x = g.rotation;
+            }
         }
 
         PitchPos.rotation = Quaternion.Lerp(PitchPos.rotation, x, 0.02f);
-
     }
 }
