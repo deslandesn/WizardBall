@@ -11,32 +11,62 @@ public class AIWizard : MonoBehaviour
 
     Transform ballTransform;
     Rigidbody rb;
+    Collider collider;
 
     [HideInInspector]
     public bool holdingBall;
     
 
-    [HideInInspector]
+    
     public Transform targettrans;
 
     Vector3 targetDir;
-   
+
+    [HideInInspector]
     public Teams team;
 
-    //public enum Roles { Defense, Mid, Attack};
-   // public Roles role;
-
+    public GameObject passTarget = null;
+    public BallOwnership ball;
     public GameObject zone;
+
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //targettrans = GameObject.Find("Ball").transform;
+        collider = GetComponent<Collider>();
+        ball = GameObject.Find("Ball").GetComponent<BallOwnership>();
     }
 
     private void FixedUpdate()
     {
-        if(targettrans == null)
+        
+        if (holdingBall)
+        {
+            if (passTarget != this.transform) {
+                //Debug.DrawRay(this.transform.position, passTarget.transform.position - this.transform.position, Color.green);
+
+
+                print("I should pass to " + passTarget);
+                RaycastHit hit;
+                // Cast a sphere wrapping character controller 10 meters forward
+                // to see if it is about to hit anything.
+                if (Physics.SphereCast(transform.position, 10, passTarget.transform.position - this.transform.position, out hit, 20))
+                {
+                    print(hit.transform.gameObject.name);
+                    if(hit.transform.gameObject == passTarget)
+                    {
+                        Debug.DrawRay(this.transform.position, hit.transform.position - this.transform.position, Color.green);
+                        passBall();
+                    }
+                    else
+                    {
+                        Debug.DrawRay(this.transform.position, hit.transform.position - this.transform.position, Color.red);
+                    }
+                }
+            }
+        }
+        if (targettrans == null)
         {
             print("no target");
         }
@@ -44,7 +74,7 @@ public class AIWizard : MonoBehaviour
         float activeSpeed = speed;
         if (holdingBall)
         {
-            activeSpeed = activeSpeed * 0.5f;
+            activeSpeed = activeSpeed * 0.7f;
         }
 
         transform.position += transform.forward * activeSpeed;
@@ -52,17 +82,6 @@ public class AIWizard : MonoBehaviour
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDir);
 
-        /* targetDir = targettrans.position - this.transform.position;
-         targetDir = targetDir.normalized;
-
-         //print(rb.velocity.magnitude);
-         rb.AddForce(targetDir * speed);
-         if (rb.velocity.magnitude > speedCap)
-         {
-
-             rb.velocity = rb.velocity.normalized * speedCap;
-         }*/
-        //print("moving to ball");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,7 +102,7 @@ public class AIWizard : MonoBehaviour
     }
     public void setNewTarget(Transform newTarget)
     {
-        if (holdingBall) { 
+        if (holdingBall) {
             if(newTarget.gameObject.name == "Target")
             targettrans = newTarget;
         }
@@ -96,5 +115,11 @@ public class AIWizard : MonoBehaviour
     {
         setNewTarget(ball.transform);
         holdingBall = false;
+    }
+    public void passBall()
+    {
+        holdingBall = false;
+        ball.passBall(passTarget.transform.position + passTarget.transform.forward);
+        //=transform.position+transform.forward
     }
 }

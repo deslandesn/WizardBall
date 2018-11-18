@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class BallOwnership : MonoBehaviour {
 
-    private AIWizard ActiveOwner;
-    
+    public AIWizard ActiveOwner;
+    Rigidbody rb;
+
     public Zones activeZone;
     
 	// Use this for initialization
 	void Start () {
         activeZone = Zones.Mid;
-
+        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
     }
 	
 	// Update is called once per frame
@@ -27,6 +29,7 @@ public class BallOwnership : MonoBehaviour {
         this.transform.parent = owner.transform;
         this.transform.localPosition = new Vector3(0f, 0f, 0f);
         ActiveOwner = owner;
+        rb.isKinematic = true;
 
 
     }
@@ -46,9 +49,26 @@ public class BallOwnership : MonoBehaviour {
                 activeZone = Zones.Mid;
                 print("entered mid");
                 break;
+            case "Target":
+                this.transform.position = GameObject.Find("BallReset").transform.position;
+                rb.isKinematic = true;
+                if(ActiveOwner != null)
+                {
+                    ActiveOwner.holdingBall = false;
+                    ActiveOwner = null;
+                }
+                this.transform.parent = null;
+                break;
         }
     }
-
+    public void passBall(Vector3 position)
+    {
+        
+        ActiveOwner = null;
+        this.transform.parent = null;
+        rb.isKinematic = false;
+        rb.AddForce((position - transform.position).normalized * 30, ForceMode.Impulse);
+    }
 }
 public enum Zones
 {
