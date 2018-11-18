@@ -6,6 +6,8 @@ public class PlayerDataCarrier : MonoBehaviour
 {
 
     string team = "Red", position ="Foward";
+    public bool hasTeam = false;
+    public bool hasPosition = false;
 
     public static PlayerDataCarrier instance = null;
 
@@ -25,10 +27,12 @@ public class PlayerDataCarrier : MonoBehaviour
     public void SetTeam(string nTeam)
     {
         team = nTeam;
+        hasTeam = true;
     }
     public void SetPosition(string nPosition)
     {
         position = nPosition;
+        hasPosition = true;
     }
 
     public string GetTeam()
