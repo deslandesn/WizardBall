@@ -15,8 +15,8 @@ public class AIWizard : MonoBehaviour
 
     [HideInInspector]
     public bool holdingBall;
-    
 
+    public bool threatened;
     
     public Transform targettrans;
 
@@ -36,35 +36,15 @@ public class AIWizard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         ball = GameObject.Find("Ball").GetComponent<BallOwnership>();
+        threatened = false;
     }
 
     private void FixedUpdate()
     {
         
-        if (holdingBall)
+        if (threatened)
         {
-            if (passTarget != this.transform) {
-                //Debug.DrawRay(this.transform.position, passTarget.transform.position - this.transform.position, Color.green);
-
-
-                print("I should pass to " + passTarget);
-                RaycastHit hit;
-                // Cast a sphere wrapping character controller 10 meters forward
-                // to see if it is about to hit anything.
-                if (Physics.SphereCast(transform.position, 10, passTarget.transform.position - this.transform.position, out hit, 20))
-                {
-                    print(hit.transform.gameObject.name);
-                    if(hit.transform.gameObject == passTarget)
-                    {
-                        Debug.DrawRay(this.transform.position, hit.transform.position - this.transform.position, Color.green);
-                        passBall();
-                    }
-                    else
-                    {
-                        Debug.DrawRay(this.transform.position, hit.transform.position - this.transform.position, Color.red);
-                    }
-                }
-            }
+            checkPass();
         }
         if (targettrans == null)
         {
@@ -99,6 +79,23 @@ public class AIWizard : MonoBehaviour
                 setNewTarget(GameObject.Find("BlueNet/Target").transform);
             }
         }
+        if (other.gameObject.tag == "Wizard" && holdingBall == true)
+        {
+            if (other.gameObject.GetComponent<AIWizard>().team != this.team) { 
+                threatened = true;
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Wizard" && holdingBall == true)
+        {
+            if (other.gameObject.GetComponent<AIWizard>().team != this.team)
+            {
+                threatened = false;
+            }
+        }
+
     }
     public void setNewTarget(Transform newTarget)
     {
@@ -121,5 +118,34 @@ public class AIWizard : MonoBehaviour
         holdingBall = false;
         ball.passBall(passTarget.transform.position + passTarget.transform.forward);
         //=transform.position+transform.forward
+    }
+    public void checkPass()
+    {
+        if (holdingBall)
+        {
+            if (passTarget != this.transform)
+            {
+                //Debug.DrawRay(this.transform.position, passTarget.transform.position - this.transform.position, Color.green);
+
+
+                print("I should pass to " + passTarget);
+                RaycastHit hit;
+                // Cast a sphere wrapping character controller 10 meters forward
+                // to see if it is about to hit anything.
+                if (Physics.SphereCast(transform.position, 10, passTarget.transform.position - this.transform.position, out hit, 20))
+                {
+                    print(hit.transform.gameObject.name);
+                    if (hit.transform.gameObject == passTarget)
+                    {
+                        Debug.DrawRay(this.transform.position, hit.transform.position - this.transform.position, Color.green);
+                        passBall();
+                    }
+                    else
+                    {
+                        Debug.DrawRay(this.transform.position, hit.transform.position - this.transform.position, Color.red);
+                    }
+                }
+            }
+        }
     }
 }

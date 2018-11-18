@@ -90,7 +90,8 @@ public class TeamManager : MonoBehaviour {
         if (ballOwner.ActiveOwner != null)
         {
             holdingTeam = ballOwner.ActiveOwner.team;
-            ballOwner.ActiveOwner.passTarget = GetClosestMember(holdingTeam == Teams.Red ? redTeam : blueTeam, holdingTeam == Teams.Red ? blueNet : redNet);
+            //ballOwner.ActiveOwner.passTarget = GetClosestMember(holdingTeam == Teams.Red ? redTeam : blueTeam, holdingTeam == Teams.Red ? blueNet : redNet);
+            ballOwner.ActiveOwner.passTarget = GetClosestMember(holdingTeam == Teams.Red ? redTeam : blueTeam, ballOwner.ActiveOwner.gameObject.transform);
         }
         else
         {
@@ -187,10 +188,12 @@ public class TeamManager : MonoBehaviour {
         foreach (AIWizard t in Team)
         {
             float dist = Vector3.Distance(t.gameObject.transform.position, currentPos);
-            if (dist < minDist)
-            {
-                tMin = t.gameObject.transform;
-                minDist = dist;
+            if (dist > 10f) { 
+                if (dist < minDist)
+                {
+                    tMin = t.gameObject.transform;
+                    minDist = dist;
+                }
             }
         }
         return tMin.gameObject;

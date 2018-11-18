@@ -7,6 +7,7 @@ TagManager:
   - projectile
   - FxTemporaire
   - Ball
+  - Wizard
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Hands
   - Broom
   - BallCollision
-  - 
-  - 
+  - IgnoreBall
+  - Ball
   - 
   - 
   - 
