@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeamManager : MonoBehaviour {
 
     private Transform blueZone, redZone, midZone;
+    private Transform blueNet, redNet;
 
 
     public AIWizard blueDefence, blueMid, blueOffense;
@@ -22,15 +23,18 @@ public class TeamManager : MonoBehaviour {
     public Teams holdingTeam;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         blueZone = GameObject.Find("BlueZone").transform;
         redZone = GameObject.Find("RedZone").transform;
         midZone = GameObject.Find("MidZone").transform;
+        redNet = GameObject.Find("RedNet/Target").transform;
+        blueNet = GameObject.Find("BlueNet/Target").transform;
 
         ball = GameObject.Find("Ball");
         ballOwner = ball.GetComponent<BallOwnership>();
 
-        
+
 
         redTeam[0] = redDefence;
         redTeam[1] = redMid;
@@ -42,20 +46,29 @@ public class TeamManager : MonoBehaviour {
 
         holdingTeam = Teams.None;
 
-        blueDefence.targettrans = blueMid.targettrans = blueOffense.targettrans = redDefence.targettrans = redMid.targettrans = redOffense.targettrans = ball.transform;
         
-
+        foreach (AIWizard wizard in redTeam)
+        {
+            wizard.targettrans = ball.transform;
+            wizard.team = Teams.Red;
+        }
+        foreach (AIWizard wizard in blueTeam)
+        {
+            wizard.targettrans = ball.transform;
+            wizard.team = Teams.Blue;
+        }
     }
 
     // Update is called once per frame
     void Update () {
 
-        foreach (AIWizard wizard in redTeam)
+        /*foreach (AIWizard wizard in redTeam)
         {
             
             if (wizard.holdingBall)
             {
-                if(holdingTeam != Teams.Red)
+                wizard.passTarget = GetClosestMember(redTeam, blueNet);
+                if (holdingTeam != Teams.Red)
                 {
                     holdingTeam = Teams.Red;
                 }
@@ -66,16 +79,26 @@ public class TeamManager : MonoBehaviour {
            
             if (wizard.holdingBall)
             {
+                wizard.passTarget = GetClosestMember(blueTeam, redNet);
                 if (holdingTeam != Teams.Blue)
                 {
                     holdingTeam = Teams.Blue;
                 }
             }
+        }*/
+
+        if (ballOwner.ActiveOwner != null)
+        {
+            holdingTeam = ballOwner.ActiveOwner.team;
+            //ballOwner.ActiveOwner.passTarget = GetClosestMember(holdingTeam == Teams.Red ? redTeam : blueTeam, holdingTeam == Teams.Red ? blueNet : redNet);
+            ballOwner.ActiveOwner.passTarget = GetClosestMember(holdingTeam == Teams.Red ? redTeam : blueTeam, ballOwner.ActiveOwner.gameObject.transform);
+        }
+        else
+        {
+            holdingTeam = Teams.None;
         }
 
-        
-
-            switch (ballOwner.activeZone)
+        switch (ballOwner.activeZone)
             {
                 case Zones.Blue:
                     
@@ -157,6 +180,25 @@ public class TeamManager : MonoBehaviour {
             }
         
 	}
+    GameObject GetClosestMember(AIWizard[] Team, Transform Net)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = Net.position;
+        foreach (AIWizard t in Team)
+        {
+            float dist = Vector3.Distance(t.gameObject.transform.position, currentPos);
+            if (dist > 10f) { 
+                if (dist < minDist)
+                {
+                    tMin = t.gameObject.transform;
+                    minDist = dist;
+                }
+            }
+        }
+        return tMin.gameObject;
+    }
+
 }
 public enum Teams
 {
