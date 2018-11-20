@@ -11,10 +11,11 @@ public class AIWizard : MonoBehaviour
 
     Transform ballTransform;
     Rigidbody rb;
-    Collider collider;
-
     [HideInInspector]
     public bool holdingBall;
+
+    [HideInInspector]
+    public bool beingPassedTo;
 
     public bool threatened;
     
@@ -26,6 +27,7 @@ public class AIWizard : MonoBehaviour
     public Teams team;
 
     public GameObject passTarget = null;
+   
     public BallOwnership ball;
     public GameObject zone;
 
@@ -34,9 +36,9 @@ public class AIWizard : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
         ball = GameObject.Find("Ball").GetComponent<BallOwnership>();
         threatened = false;
+        beingPassedTo = false;
     }
 
     private void FixedUpdate()
@@ -46,9 +48,14 @@ public class AIWizard : MonoBehaviour
         {
             checkPass();
         }
+        
         if (targettrans == null)
         {
             print("no target");
+        }
+        if (beingPassedTo)
+        {
+            handlePass();
         }
         float step = turnSpeed * Time.deltaTime;
         float activeSpeed = speed;
@@ -63,7 +70,17 @@ public class AIWizard : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDir);
 
     }
-
+    public void handlePass()
+    {
+        float dist = Vector3.Distance(this.transform.position, targettrans.position);
+        print("pass distance is: " + dist);
+        if(dist < 0.2f)
+        {
+            beingPassedTo = false;
+            StopCoroutine("TryToCatch");
+        }
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Ball" && holdingBall == false)
@@ -105,6 +122,7 @@ public class AIWizard : MonoBehaviour
         }
         else
         {
+            if(!beingPassedTo)
             targettrans = newTarget;
         }
     }
@@ -112,12 +130,20 @@ public class AIWizard : MonoBehaviour
     {
         setNewTarget(ball.transform);
         holdingBall = false;
+        StartCoroutine("BallStun");
     }
     public void passBall()
     {
         holdingBall = false;
         ball.passBall(passTarget.transform.position + passTarget.transform.forward);
+        passTarget.GetComponent<AIWizard>().beingPassed(ball.transform);
         //=transform.position+transform.forward
+    }
+    public void beingPassed(Transform passLocation)
+    {
+        beingPassedTo = true;
+        targettrans = passLocation;
+        StartCoroutine("TryToCatch");
     }
     public void checkPass()
     {
@@ -147,5 +173,18 @@ public class AIWizard : MonoBehaviour
                 }
             }
         }
+    }
+    private IEnumerator TryToCatch()
+    {
+       yield return new WaitForSeconds(3);
+        beingPassedTo = false;
+        StopCoroutine("TryToCatch");
+    }
+    private IEnumerator BallStun()
+    {
+        this.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(3);
+        this.GetComponent<Collider>().enabled = true;
+        StopCoroutine("BallStun");
     }
 }

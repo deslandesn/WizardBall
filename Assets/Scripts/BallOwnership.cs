@@ -51,8 +51,9 @@ public class BallOwnership : MonoBehaviour {
                 break;
             case "Target":
                 this.transform.position = GameObject.Find("BallReset").transform.position;
-                rb.isKinematic = true;
-                if(ActiveOwner != null)
+                rb.isKinematic = false;
+                rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                if (ActiveOwner != null)
                 {
                     ActiveOwner.holdingBall = false;
                     ActiveOwner = null;
