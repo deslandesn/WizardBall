@@ -29,20 +29,20 @@ public class MenuManager : MonoBehaviour
 
     public void SetPlayerPosition(string value)
     {
-
         PlayerDataCarrier.instance.SetPosition(value);
         ToggleButton(positions, value);
         CheckSettings();
-
     }
 
     public void SetMaxTime(float value)
     {
+        PlayerDataCarrier.instance.SetTime(value);
         Debug.Log(value);
     }
 
     public void SetMaxScore(float value)
     {
+        PlayerDataCarrier.instance.SetScore(value);
         Debug.Log(value);
     }
 

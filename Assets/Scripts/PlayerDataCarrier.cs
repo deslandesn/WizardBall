@@ -6,6 +6,8 @@ public class PlayerDataCarrier : MonoBehaviour
 {
 
     string team = "Red", position ="Foward";
+    public float maxScore;
+    public float maxTime;
     public bool hasTeam = false;
     public bool hasPosition = false;
 
@@ -29,19 +31,41 @@ public class PlayerDataCarrier : MonoBehaviour
         team = nTeam;
         hasTeam = true;
     }
-    public void SetPosition(string nPosition)
-    {
-        position = nPosition;
-        hasPosition = true;
-    }
 
     public string GetTeam()
     {
         return team;
     }
 
+    public void SetPosition(string nPosition)
+    {
+        position = nPosition;
+        hasPosition = true;
+    }
+       
     public string GetPosition()
     {
         return position;
     }
+
+    public void SetTime(float time)
+    {
+        maxTime = time;
+    }
+
+    public float GetTime()
+    {
+        return maxTime;
+    }
+
+    public void SetScore(float score)
+    {
+        maxScore = score;
+    }
+
+    public float GetScore()
+    {
+        return maxScore;
+    }
+
 }
