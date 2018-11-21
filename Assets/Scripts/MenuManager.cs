@@ -36,6 +36,17 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void SetMaxTime(float value)
+    {
+        Debug.Log(value);
+    }
+
+    public void SetMaxScore(float value)
+    {
+        Debug.Log(value);
+    }
+
+
     public void QuitGame()
     {
         Application.Quit();
