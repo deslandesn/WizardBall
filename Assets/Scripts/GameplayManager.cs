@@ -101,7 +101,7 @@ public class GameplayManager : MonoBehaviour {
         }
     }
 
-    public void ResetBall(Transform ball)
+    void ResetBall(Transform ball)
     {
         ball.position = ballSpawnPos.position;
         ball.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
@@ -115,6 +115,18 @@ public class GameplayManager : MonoBehaviour {
     void DebugSpawnWand()
     {
         GameObject.Instantiate(Wand, ballSpawnPos.position, ballSpawnPos.rotation);
+    }
+
+    public void ResetPlay(Transform ball)
+    {
+        StartCoroutine(AfterPlayPeriod(ball));
+    }
+
+    IEnumerator AfterPlayPeriod(Transform ball)
+    {
+        yield return new WaitForSeconds(5f);
+        ResetPlayerPos();
+        ResetBall(ball);
     }
 
 
