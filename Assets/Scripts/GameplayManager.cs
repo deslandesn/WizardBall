@@ -51,6 +51,8 @@ public class GameplayManager : MonoBehaviour {
         {
             ReturnToMainMenu();
         }
+
+        ScoreBoardController.instance.UpdateBoard(REDSCORE, BLUESCORE);
     }
     
     void ResetPlayerPos()
