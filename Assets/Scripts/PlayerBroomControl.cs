@@ -148,6 +148,10 @@ public class PlayerBroomControl : MonoBehaviour
         }
         else//controllers
         {
+
+
+
+
             if (grip.GetPitch() > 0.7f)
             {
                 x = a.rotation;
@@ -164,17 +168,17 @@ public class PlayerBroomControl : MonoBehaviour
             {
                 x = d.rotation;
             }
-            else if (grip.GetPitch() > -0.2f)
-            {
-                x = e.rotation;
-            }
-            else if (grip.GetPitch() > -0.4f)
-            {
-                x = f.rotation;
-            }
             else if (grip.GetPitch() < -0.7f)
             {
                 x = g.rotation;
+            }
+            else if (grip.GetPitch() < -0.4f)
+            {
+                x = f.rotation;
+            }
+            else if (grip.GetPitch() < -0.2f)
+            {
+                x = e.rotation;
             }
         }
 
