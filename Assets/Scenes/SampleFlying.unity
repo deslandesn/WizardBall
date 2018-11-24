@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 17048416}
   - component: {fileID: 17048419}
   m_Layer: 0
-  m_Name: NetBlue
+  m_Name: NetR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0552880c0638aa4c8e83eaf540ecaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
 --- !u!1 &52268599
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 61232888}
   - component: {fileID: 61232891}
   m_Layer: 0
-  m_Name: NetRed
+  m_Name: NetB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0552880c0638aa4c8e83eaf540ecaec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1718,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281306889233912, guid: 53b6d1196f44c644a8f5a0e1d6846249, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 38.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53b6d1196f44c644a8f5a0e1d6846249, type: 2}
