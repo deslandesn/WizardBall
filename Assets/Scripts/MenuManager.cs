@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour
 
     readonly string[] teams = new string[] { "Red", "Blue" };
     readonly string[] positions = { "Defence", "Mid", "Forward" };
+    readonly string[] times = { "timeThree", "timeFive", "timeTen" };
+    readonly string[] scores = { "scoreThree", "scoreFive", "scoreTen" };
 
     public void SetPlayerTeam(string value)
     {
@@ -36,14 +38,17 @@ public class MenuManager : MonoBehaviour
 
     public void SetMaxTime(float value)
     {
+        string selectedBtn = ConvertFloat(value, "time");
+       
         PlayerDataCarrier.instance.SetTime(value);
-        Debug.Log(value);
+        ToggleButton(times, selectedBtn);
     }
 
     public void SetMaxScore(float value)
     {
+        string selectedBtn = ConvertFloat(value, "score");
         PlayerDataCarrier.instance.SetScore(value);
-        Debug.Log(value);
+        ToggleButton(scores, selectedBtn);
     }
 
 
@@ -83,5 +88,26 @@ public class MenuManager : MonoBehaviour
 
             btn.colors = cb;
         }
+    }
+
+    //Dirty workaround for ToggleButtons working with floats... should fix
+    public string ConvertFloat(float value, string prefix)
+    {
+        string convert = value.ToString();
+        switch (convert)
+        {
+            case "3":
+                convert = "Three";
+                break;
+            case "5":
+                convert = "Five";
+                break;
+            case "10":
+                convert = "Ten";
+                break;
+            default:
+                break;
+        }
+        return (prefix + convert);
     }
 }
