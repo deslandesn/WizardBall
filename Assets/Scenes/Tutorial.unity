@@ -1281,7 +1281,8 @@ MonoBehaviour:
 
     Each goal counts for 1 point.
 
-    Before beginning the game select a postion, team, max score & time.
+    Before beginning the game select a postion, team, max score & time. Max time and
+    score will default to 5 if not selected.
 
     Whatever comes first - max score or time will end the game.
 

@@ -6,8 +6,8 @@ public class PlayerDataCarrier : MonoBehaviour
 {
 
     string team = "Red", position ="Foward";
-    public float maxScore;
-    public float maxTime;
+    public float maxScore = 5;
+    public float maxTime = 5;
     public bool hasTeam = false;
     public bool hasPosition = false;
 
